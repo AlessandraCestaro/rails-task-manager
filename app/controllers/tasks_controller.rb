@@ -1,40 +1,49 @@
 class TasksController < ApplicationController
-
+before_action :set_task, only: [:show, :edit, :update, :destroy]
   # READ
   def index
     @tasks = Task.all
   end
 
-  # def show
-  #   # it is searching the specific task by the id (task is just a shortcut for :id = task.id)
-  #   @task = Task.find(task)
-  # end
+  def show
+    # it is searching the specific task by the id (task is just a shortcut for :id = task.id)
+  end
 
-  # # CREATE
-  # def new
-  #   @task = Task.new()
-  # end
+  # CREATE
+  def new
+    @task = Task.new
+  end
 
-  # def create
-  # end
+  def create
+    @task = Task.new(task_params)
+    @task.save
 
-  # # UPDATE
-  # def edit
-  #   @task = Task.find(task)
-  # end
+    redirect_to tasks_path
+  end
 
-  # def update
-  #   @task = Task.find(task)
-  # end
+  # UPDATE
+  def edit
 
-  # # DELETE
-  # def delete
-  #   @task = Task.find(task)
-  #   @task.delete
-  # end
+  end
 
-  # private
+  def update
 
-  # # set_params
+  end
+
+  # DELETE
+  def destroy
+    @task.destroy
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :details, :completed)
+  end
+
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
 end

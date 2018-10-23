@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show task detail</title>
+</head>
+<body>
+
+<h1><%= @task.title %></h1>
+<br>
+<% if @task.completed %>
+  <%= "Done? [x]" %>
+  <% else %>
+  <%= "Done? [ ]" %>
+  <% end %>
+<br>
+<p><%= "Task description: #{@task.details}" %></p>
+
+
+</body>
+</html>

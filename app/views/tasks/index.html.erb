@@ -11,14 +11,14 @@
   <ul>
     <% @tasks.each do |task| %>
     <li>
-        <% if @task.completed %>
+        <% if task.completed %>
           <%= "[x]" %>
           <% else %>
           <%= "[ ]" %>
-        <!-- <p><%= @task.completed %></p> -->
-      <h3><%= @task.title %></h3>
+        <!-- <p><%#= @task.completed %></p> -->
+          <% end %>
+      <h3><%= link_to task.title, show_path(task)%></h3>
       <br>
-      <p><%= @task.details %></p>
     </li>
     <% end %>
   </ul>
