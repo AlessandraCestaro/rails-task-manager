@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+
+<h1>My tasks</h1>
+
+  <ul>
+    <% @tasks.each do |task| %>
+    <li>
+        <% if @task.completed %>
+          <%= "[x]" %>
+          <% else %>
+          <%= "[ ]" %>
+        <!-- <p><%= @task.completed %></p> -->
+      <h3><%= @task.title %></h3>
+      <br>
+      <p><%= @task.details %></p>
+    </li>
+    <% end %>
+  </ul>
+
+</body>
+</html>
